@@ -1,4 +1,3 @@
-from copyreg import remove_extension
 import pytest
 from macowins import *
 

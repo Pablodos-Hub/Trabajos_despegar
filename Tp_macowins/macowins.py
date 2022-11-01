@@ -1,4 +1,4 @@
-import time
+from datetime import time
 from collections import Counter
 
 class Sucursal:
@@ -220,11 +220,9 @@ class PorStock:
         return producto.stock > 0
 
 class PorOposicion:
-    def __init__(self,una_categoria,un_nombre,un_precio):
-        self.categoria = una_categoria
-        self.nombre = un_nombre
-        self.precio = un_precio
-
+    def __init__(self,un_criterio):
+        self.criterio = un_criterio
+        
     def aplica_a(self,producto):
-        return not self.categoria in producto.categoria or not self.nombre == producto.nombre or not producto.precio < self.precio or producto.stock < 0
+        return not self.criterio.aplica_a(producto)
 
