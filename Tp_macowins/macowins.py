@@ -1,5 +1,6 @@
 from datetime import time
 from collections import Counter
+from persistencia import *
 
 class Sucursal:
     #######################-ADICIONAL VER PRODUCTOS CARGADOS EN LA LISTA-###########################################################################################################
@@ -225,4 +226,5 @@ class PorOposicion:
         
     def aplica_a(self,producto):
         return not self.criterio.aplica_a(producto)
+
 
