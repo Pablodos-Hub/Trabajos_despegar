@@ -16,4 +16,3 @@ def cargar_todos():
 
   return elementos
 
-

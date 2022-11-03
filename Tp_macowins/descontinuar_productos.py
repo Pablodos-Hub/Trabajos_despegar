@@ -1,16 +1,11 @@
-from time import strftime
-from macowins import *
 from datetime import datetime
-
+from macowins import *
 from persistencia import cargar_todos
 
-import subprocess
-
-subprocess.call(["zenity", "--info",  '--title=Hola', "--text=¡Hola mundo!", "--display=:0"])
-
-print ("hola pablo")
-print("Descontinuando productos sin stock")
+print (str(datetime.now()) + " : descontinuando productos" )
 
 if __name__ == "__main__":
-    for sucursal in cargar_todos():
+    for sucursal in cargar_todos().values():
         sucursal.descontinuar_productos()
+
+        
