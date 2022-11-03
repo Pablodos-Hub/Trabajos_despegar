@@ -302,3 +302,12 @@ def test_ganancia_diara_sucursal_virtual_con_101_ventas_151500_menos_50500_con_g
     realizar_50_compras_remera_talle_s(sucursal_madero)
     sucursal_madero.realizar_compra(100,1,True)
     assert sucursal_madero.ganancia_diaria() == 101000 
+    
+# TEST DE ACTUALIZAR PRECIO SEGUN CRITERIOS
+
+def test_actualizar_precio_un_50_porciento_segun_stock_igual_0():
+    reiniciar_lista_productos_y_ventas()
+    lista_de_2_productos_sin_stock(sucursal_retiro)
+    sucursal_retiro.actualizar_precios_segun(PorStock(),50)
+    assert sucursal_retiro.list(sucursal_retiro.productos).remera_talle_s.precio == 3750
+    assert sucursal_retiro.productos[1].precio == 7500

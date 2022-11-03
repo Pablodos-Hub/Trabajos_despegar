@@ -36,9 +36,9 @@ class Sucursal:
     def calcular_precio_final(self,codigo_producto,es_extranjero):
         for producto in self.productos:
             if producto.codigo_valido(codigo_producto) and producto.precio > 70 and es_extranjero:
-               return producto.precio_final(producto.precio)
+               return producto.precio_final()
             if producto.codigo_valido(codigo_producto) and not es_extranjero:
-               return producto.precio_final(producto.precio) + (producto.precio_final(producto.precio)*21)/100 
+               return producto.precio_final() + (producto.precio_final(producto.precio)*21)/100 
 
     def contar_categorias(self):
         lista_total_categorias = set()
@@ -167,9 +167,8 @@ class Prenda:
     def cambiar_estado(self,nuevo_estado):
         self.estado = nuevo_estado
 
-    def precio_final(self,precio):
-        preci0_final = self.estado.precio_final(precio)
-        return preci0_final
+    def precio_final(self):
+        return self.estado.precio_final(self.precio)
 
     def es_de_categoria(self,categoria):
         return categoria in self.categoria
@@ -186,8 +185,10 @@ class Nueva:
         return precio
 
 class Promocion:
-    def precio_final(self,precio,valor_promo):
-        return precio - valor_promo
+    def __init__(self,valor_promo):
+        self.valor = valor_promo
+    def precio_final(self,precio):
+        return precio - self.valor
 
 class Liquidacion:
     def precio_final(self,precio):
