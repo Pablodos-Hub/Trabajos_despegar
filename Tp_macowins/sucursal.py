@@ -1,5 +1,4 @@
-from persistencia import *
-from datetime import *
+from datetime import datetime
 from collections import *
 
 class Sucursal:
@@ -23,7 +22,7 @@ class Sucursal:
         for producto in self.productos:
             if producto.codigo_valido(codigo_producto):
                codigo_valido = True
-               producto.stock += cantidad_a_agregar
+               producto.agregar_stock(cantidad_a_agregar)
         if not codigo_valido:
             raise ValueError ("El codigo no corresponde a un producto registrado")
 
@@ -35,7 +34,7 @@ class Sucursal:
 
     def calcular_precio_final(self,codigo_producto,es_extranjero):
         for producto in self.productos:
-            if producto.codigo_valido(codigo_producto) and producto.precio > 70 and es_extranjero:
+            if producto.codigo_valido(codigo_producto) and producto.precio_final() > 70 and es_extranjero:
                return producto.precio_final()
             if producto.codigo_valido(codigo_producto) and not es_extranjero:
                return producto.precio_final() + (producto.precio_final()*21)/100 
@@ -54,20 +53,20 @@ class Sucursal:
                codigo_valido = True
                if producto.vender_con_stock(cantidad_a_vender):
                   monto_total = self.calcular_precio_final(codigo_producto,es_extranjero)*cantidad_a_vender
-                  self.ventas.append({"producto":producto.nombre,"cantidad_vendida":cantidad_a_vender,"monto":monto_total,"fecha":time.strftime("%d/%m"),"anio":time.strftime("%Y")})
+                  self.ventas.append({"producto":producto.nombre,"cantidad_vendida":cantidad_a_vender,"monto":monto_total,"fecha":datetime.strftime(datetime.now(),"%d/%m"),"anio":datetime.strftime(datetime.now(),"%Y")})
                else:
                   raise ValueError ("No hay suficiente stock para realizar la venta")      
         if not codigo_valido:
            raise ValueError ("El codigo no corresponde a un producto registrado")       
 
     def descontinuar_productos(self):
-        self.productos = {producto for producto in self.productos if producto.stock > 0}
+        self.productos = {producto for producto in self.productos if producto.hay_stock()}
 
     def valor_ventas_del_dia(self):
         venta_dia = 0
         if self.hay_ventas():
            for venta in self.ventas:
-            if time.strftime("%d/%m") == venta["fecha"]:
+            if datetime.strftime(datetime.now(),"%d/%m") == venta["fecha"]:
                venta_dia += venta["monto"]
         else:
             raise ValueError ("No hay ventas registradas") 
@@ -77,7 +76,7 @@ class Sucursal:
         venta_anio = 0
         if self.hay_ventas(): 
            for venta in self.ventas:
-               if time.strftime("%Y") == venta["anio"]:
+               if datetime.strftime(datetime.now(),"%Y") == venta["anio"]:
                   venta_anio += venta["monto"]
         else:
             raise ValueError ("No hay ventas registradas")

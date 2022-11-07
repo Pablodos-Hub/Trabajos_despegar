@@ -1,110 +1,6 @@
 import pytest
 from macowins import *
-
-# UTILIDADES
-sucursal_retiro = SucursalFisica()
-sucursal_madero = SucursalVirtual()
-remera_talle_s = Prenda(100,"remera talle s",1500,"remera")
-remera_talle_m = Prenda(110,"remera talle m",2000,"remera")
-remera_talle_l = Prenda(120,"remera talle l",2500,"remera")
-pantalon_talle_38 = Prenda(200,"pantalon talle 38",5000,"pantalon")
-pantalon_talle_40 = Prenda(210,"pantalon talle 40",6000,"pantalon")
-pantalon_talle_42 = Prenda(220,"pantalon talle 42",7000,"pantalon")
-
-def reiniciar_lista_productos_y_ventas():
-    sucursal_retiro.productos.clear()
-    sucursal_madero.productos.clear()
-    sucursal_retiro.ventas.clear()
-    sucursal_madero.ventas.clear()
-def reiniciar_stock_de_prenda(prenda):
-    prenda.stock = 0
-def lista_de_2_productos_sin_stock(sucursal):
-    sucursal.registrar_producto(remera_talle_s)
-    sucursal.registrar_producto(pantalon_talle_38)
-    reiniciar_stock_de_prenda(remera_talle_s)
-    reiniciar_stock_de_prenda(pantalon_talle_38)
-def lista_de_2_productos_con_stock(sucursal):
-    sucursal.registrar_producto(remera_talle_s)
-    sucursal.registrar_producto(pantalon_talle_38)
-    reiniciar_stock_de_prenda(remera_talle_s)
-    reiniciar_stock_de_prenda(pantalon_talle_38)
-    sucursal.recargar_stock(100,100)
-    sucursal.recargar_stock(200,100)
-def lista_de_6_productos_con_stock(sucursal):
-    sucursal.registrar_producto(remera_talle_s)
-    sucursal.registrar_producto(remera_talle_m)
-    sucursal.registrar_producto(remera_talle_l)
-    sucursal.registrar_producto(pantalon_talle_38)
-    sucursal.registrar_producto(pantalon_talle_40)
-    sucursal.registrar_producto(pantalon_talle_42)
-    reiniciar_stock_de_prenda(remera_talle_s)
-    reiniciar_stock_de_prenda(remera_talle_m)
-    reiniciar_stock_de_prenda(remera_talle_l)
-    reiniciar_stock_de_prenda(pantalon_talle_38)
-    reiniciar_stock_de_prenda(pantalon_talle_40)
-    reiniciar_stock_de_prenda(pantalon_talle_42)
-    sucursal.recargar_stock(100,500)
-    sucursal.recargar_stock(110,500)
-    sucursal.recargar_stock(120,500)
-    sucursal.recargar_stock(200,500)
-    sucursal.recargar_stock(210,500)
-    sucursal.recargar_stock(220,500)
-def realizar_50_compras_remera_talle_s(sucursal):
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    #10
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    #20
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    #30
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    #40
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True)
-    sucursal.realizar_compra(100,1,True) #50
-   
+from utilidades_pytest import * 
 
 #TEST 1. REGISTRAR PRODUCTOS
 
@@ -270,7 +166,7 @@ def test_remera_talle_s_aparece_3_veces_y_pantalon_talle_38_aparece_1_vez():
 
 #TEST 11. ACTUALIZAR LOS PRECIOS POR CATEGORIA
 
-def test_actualizar_todos_los_precios_de_una_categoria_remera():
+def test_actualizar_todos_los_precios_50_porciento_de_una_categoria_remera():
     reiniciar_lista_productos_y_ventas()
     sucursal_retiro.registrar_producto(remera_talle_s)
     reiniciar_stock_de_prenda(remera_talle_s)
@@ -278,7 +174,7 @@ def test_actualizar_todos_los_precios_de_una_categoria_remera():
     reiniciar_stock_de_prenda(remera_talle_m)
     sucursal_retiro.registrar_producto(remera_talle_l)
     reiniciar_stock_de_prenda(remera_talle_l)
-    sucursal_retiro.actualizar_precios_por_categoria("remera",50)
+    sucursal_retiro.actualizar_precios_segun(PorCategoria("remera"),50)
     assert remera_talle_s.precio == 2250
     assert remera_talle_m.precio == 3000
     assert remera_talle_l.precio == 3750
@@ -287,6 +183,7 @@ def test_actualizar_todos_los_precios_de_una_categoria_remera():
 
 def test_ganancia_diara_sucursal_fisica_igual_a_total_ventas_20000_menos_15000():
     reiniciar_lista_productos_y_ventas()
+    reiniciar_precios_de_prendas()
     lista_de_6_productos_con_stock(sucursal_retiro)
     sucursal_retiro.realizar_compra(100,4,True) # total venta $6000
     sucursal_retiro.realizar_compra(200,2,True) # total venta $10000
@@ -298,8 +195,7 @@ def test_ganancia_diara_sucursal_virtual_con_101_ventas_151500_menos_50500_con_g
     reiniciar_lista_productos_y_ventas()
     lista_de_6_productos_con_stock(sucursal_madero)
     sucursal_madero.modificar_gasto_variable(500)
-    realizar_50_compras_remera_talle_s(sucursal_madero)
-    realizar_50_compras_remera_talle_s(sucursal_madero)
+    realizar_cantidad_de_compras_de_producto(sucursal_madero,100,100)
     sucursal_madero.realizar_compra(100,1,True)
     assert sucursal_madero.ganancia_diaria() == 101000 
     
@@ -307,7 +203,32 @@ def test_ganancia_diara_sucursal_virtual_con_101_ventas_151500_menos_50500_con_g
 
 def test_actualizar_precio_un_50_porciento_segun_stock_igual_0():
     reiniciar_lista_productos_y_ventas()
-    lista_de_2_productos_sin_stock(sucursal_retiro)
+    reiniciar_precios_de_prendas()
+    lista_de_2_productos_con_stock(sucursal_retiro)
     sucursal_retiro.actualizar_precios_segun(PorStock(),50)
-    assert sucursal_retiro.list(sucursal_retiro.productos).remera_talle_s.precio == 3750
-    assert sucursal_retiro.productos[1].precio == 7500
+    assert remera_talle_s.precio == 2250
+    assert pantalon_talle_38.precio == 7500
+
+def test_actualizar_precio_un_100_porciento_segun_precio_10000():
+    reiniciar_lista_productos_y_ventas()
+    reiniciar_precios_de_prendas()
+    lista_de_2_productos_con_stock(sucursal_retiro)
+    sucursal_retiro.actualizar_precios_segun(PorPrecio(10000),100)
+    assert remera_talle_s.precio == 3000
+    assert pantalon_talle_38.precio == 10000  
+
+def test_actualizar_precio_un_75_porciento_segun_nombre():
+    reiniciar_lista_productos_y_ventas()
+    reiniciar_precios_de_prendas()
+    lista_de_2_productos_con_stock(sucursal_retiro)
+    sucursal_retiro.actualizar_precios_segun(PorNombre("remera talle s"),75)
+    assert remera_talle_s.precio == 2625
+
+def test_actualizar_precio_un_100_porciento_segun_oposicion():
+    reiniciar_lista_productos_y_ventas()
+    reiniciar_precios_de_prendas()
+    lista_de_2_productos_con_stock(sucursal_retiro)
+    sucursal_retiro.actualizar_precios_segun(PorOposicion(PorNombre("pelota")),100)
+    assert remera_talle_s.precio == 3000
+    assert pantalon_talle_38.precio == 10000        
+    

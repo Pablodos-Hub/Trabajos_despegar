@@ -43,6 +43,9 @@ class Prenda:
     def actualizar_precio_segun_porcentaje(self,porcentaje):
         self.precio = self.precio + (self.precio * porcentaje)/100
 
+    def agregar_stock(self,cantidad_agregar):
+        self.stock += cantidad_agregar    
+
 # ------ ESTADOS ------
 class Nueva:
     def precio_final(self,precio):
