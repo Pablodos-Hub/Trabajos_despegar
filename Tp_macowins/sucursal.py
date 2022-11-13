@@ -1,5 +1,7 @@
 from datetime import datetime
 from collections import *
+from prendas import *
+from criterios import *
 
 class Sucursal:
     #######################-ADICIONAL VER PRODUCTOS CARGADOS EN LA LISTA-###########################################################################################################

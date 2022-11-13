@@ -1,3 +1,5 @@
+from estados import *
+
 class Prenda:
     def __init__(self,un_codigo,un_nombre,un_precio,categoria):
         self.codigo = un_codigo
@@ -45,52 +47,3 @@ class Prenda:
 
     def agregar_stock(self,cantidad_agregar):
         self.stock += cantidad_agregar    
-
-# ------ ESTADOS ------
-class Nueva:
-    def precio_final(self,precio):
-        return precio
-
-class Promocion:
-    def __init__(self,valor_promo):
-        self.valor = valor_promo
-    def precio_final(self,precio):
-        return precio - self.valor
-
-class Liquidacion:
-    def precio_final(self,precio):
-        return precio /2
-
-# ------ CRITERIOS ------
-
-class PorCategoria:
-    def __init__(self, categoria):
-        self.categoria = categoria
-
-    def aplica_a(self, producto):
-        return producto.es_de_categoria(self.categoria)
-
-class PorNombre:
-    def __init__(self, nombre):
-        self.nombre = nombre
-
-    def aplica_a(self, producto):
-        return producto.es_de_nombre(self.nombre)
-
-class PorPrecio:
-    def __init__(self,precio):
-        self.precio = precio
-
-    def aplica_a(self,producto):
-        return producto.precio < self.precio
-
-class PorStock:
-    def aplica_a(self,producto):
-        return producto.stock > 0
-
-class PorOposicion:
-    def __init__(self,un_criterio):
-        self.criterio = un_criterio
-        
-    def aplica_a(self,producto):
-        return not self.criterio.aplica_a(producto)
