@@ -2,6 +2,7 @@ from datetime import datetime
 from collections import *
 from prendas import *
 from criterios import *
+from persistencia import *
 
 class Sucursal:
     #######################-ADICIONAL VER PRODUCTOS CARGADOS EN LA LISTA-###########################################################################################################
@@ -109,3 +110,4 @@ class Sucursal:
 
     def listar_productos_segun(self,criterio):
         return {producto for producto in self.productos if criterio.aplica_a(producto)}
+
