@@ -5,21 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
-    <link rel="shortcut icon" href="/static/img/gato2.png">
+    <link rel="shortcut icon" href="/static/img/macowins.jpeg">
     <title>Mac-o-wins</title>
 </head>
 <body>
     <header>
-        <img src="/static/img/gato2.png" alt="gato" name="gato">
+        <section class="section-logo">
+            <img src="/static/img/macowins.jpeg" alt="gato" name="gato">
+        </section>
         <section class="section-home">
             <h1>Mac-o-wins</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{{url_for('main')}}">HOME</a>
-                    </li>
-                </ul>
-            </nav>
+            <p>"Si compras de más es por que querés"</p>
+            <form action="/pagina2" class="inicio">
+                <input type="text" name="producto">
+                <button type="submit">enviar</button>    
+
+            </form>
         </section>
     </header>
     <main>
@@ -42,8 +43,15 @@
         </section>        
     
     </main>
-    <footer>
-
+    <footer> 
+        <nav>
+            <ul class="links">
+                <li><a href="https://Facebook.com">Facebook</a></li>
+                <li><a href="https://mail.google.com">Gmail</a></li>
+                <li><a href="#">About</a></li>
+            </ul>  
+        </nav>
+        <p>Copyright 2022. All rights reserved (o sea ninguno)</p>
     </footer>
 </body>
 </html>

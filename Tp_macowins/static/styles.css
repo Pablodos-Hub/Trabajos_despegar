@@ -3,23 +3,29 @@
     padding: 0;
 }
 body{
-    background-color: rgb(255, 180, 75);
+    background-color: #5d00b3;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    
 }
 header{
     display: flex;
     align-items: center;
     
 }
-header img{
-    max-width: 100%;
+.section-logo{
+    display: flex;
+    width: 39%;
+}
+.section-logo img{
+    width: 80%;
     flex-grow: 1%;
-    border-radius: 2%;
     padding: 2%;
 }
 .section-home{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 59%;
     height: 130px;
     padding-right: 2%;
     padding-top: 2%;
@@ -32,11 +38,19 @@ header img{
 .section-home li{
     height: 50px;
 }
+.section-home form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+input{
+    width: 75%;
+}
 main{
     display: flex;
 }
 .section-productos {
-    background-color: grey;
+    background-color: #8f993e;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -56,7 +70,32 @@ div{
 div img{
     max-width: 100%;
 }
-
+footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 14%;
+    
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 13%;
+    gap: 5%;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color: white;
+    
+}
+li {
+    list-style:none;
+}
 
 @media (min-width:360px){
     body{
@@ -73,10 +112,9 @@ div img{
     }
     
     header img{
-        min-width: 100px;
-        max-width: 150px;
-        min-height: 100px;
-        max-height: 150px;
+        width: 40%;
+        height:40%;
+        margin-left: 2%;
     }
 }
 
@@ -92,5 +130,8 @@ div img{
 @media (min-width:1200px){
     body{
         font-size: large;
+    }
+    div{
+        width: 23%;
     }
 }
