@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <link rel="shortcut icon" href="">
+    <title>Mac-o-wins</title>
+</head>
+<body>
+    <section class="contenedor">
+
+        <header>
+            <img src="/static/img/mac-owins.jpeg" name="logo">
+            <section class="section-header">
+                <h1>Orange box </h1>
+                <h4>from Mac-o-wins </h4>
+            </section>
+            <section class="section-p">
+                <p>"Si comprás de más es por que querés..."</p>
+            </section>
+        </header>
+
+        <nav class="section-navegacion"> 
+            <section class="section-home">
+                <a href="#" name="home">
+                    <button class="home" alt="home">home</button>
+                </a>
+            </section>
+            <section class="section-nombre">
+                <form action="{{url_for('pagina2')}}" value="nombre">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="nombre" name="nombre">
+                    <button type="submit">enviar</button>
+                </form>   
+            </section>
+            <section class="section-categoria">
+                <form action="{{url_for('pagina3')}}" value="categoria">
+                    <label for="categoria">Categoria:</label>
+                    <input type="text" class="categoria" nombre="categoria">
+                    <button type="submit">enviar</button>
+                </form>
+                
+            </section>
+            <section class="section-precio">
+                <form action="{{url_for('pagina4')}}" value="precio">
+                    <label for="precio">Precio:</label>
+                    <input type="text" class="precio" nombre="precio">
+                    <button type="submit">precio-max</button>
+                </form>
+            </section>
+             
+        </nav>
+
+        <main>
+            <section class="section-productos">
+                <article>
+                    <img src="/static/img/river-remera.JPG" alt="remera de river">
+                    <p>nombre: {{productos[0].nombre}}</p>
+                    <p>categoria: {{productos[0].categoria}}</p>
+                    <p>precio: ${{productos[0].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/river-remera.JPG" alt="remera de river">
+                    <p>nombre: {{productos[1].nombre}}</p>
+                    <p>categoria: {{productos[1].categoria}}</p>
+                    <p>precio: ${{productos[1].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/river-remera.JPG" alt="remera de river">
+                    <p>nombre: {{productos[2].nombre}}</p>
+                    <p>categoria: {{productos[2].categoria}}</p>
+                    <p>precio: ${{productos[2].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/remera-boca.JPG" alt="remera de boca">
+                    <p>nombre: {{productos[3].nombre}}</p>
+                    <p>categoria: {{productos[3].categoria}}</p>
+                    <p>precio: ${{productos[3].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/remera-boca.JPG" alt="remera de boca">
+                    <p>nombre: {{productos[4].nombre}}</p>
+                    <p>categoria: {{productos[4].categoria}}</p>
+                    <p>precio: ${{productos[4].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/remera-boca.JPG" alt="remera de boca">
+                    <p>nombre: {{productos[5].nombre}}</p>
+                    <p>categoria: {{productos[5].categoria}}</p>
+                    <p>precio: ${{productos[5].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/pantalon-river.jpeg" alt="pantalon de river">
+                    <p>nombre: {{productos[6].nombre}}</p>
+                    <p>categoria: {{productos[6].categoria}}</p>
+                    <p>precio: ${{productos[6].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/pantalon-river.jpeg" alt="pantalon de river">
+                    <p>nombre: {{productos[7].nombre}}</p>
+                    <p>categoria: {{productos[7].categoria}}</p>
+                    <p>precio: ${{productos[7].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/pantalon-river.jpeg" alt="pantalon de river">
+                    <p>nombre: {{productos[8].nombre}}</p>
+                    <p>categoria: {{productos[8].categoria}}</p>
+                    <p>precio: ${{productos[8].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/pantalon-boca.jpeg" alt="pantalon de boca">
+                    <p>nombre: {{productos[9].nombre}}</p>
+                    <p>categoria: {{productos[9].categoria}}</p>
+                    <p>precio: ${{productos[9].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/pantalon-boca.jpeg" alt="pantalon de boca">
+                    <p>nombre: {{productos[10].nombre}}</p>
+                    <p>categoria: {{productos[10].categoria}}</p>
+                    <p>precio: ${{productos[10].precio}}</p>
+                </article>
+                <article>
+                    <img src="/static/img/pantalon-boca.jpeg" alt="pantalon de boca">
+                    <p>nombre: {{productos[11].nombre}}</p>
+                    <p>categoria: {{productos[11].categoria}}</p>
+                    <p>precio: ${{productos[11].precio}}</p>
+                </article>
+            </section>
+        </main>
+
+        <footer> 
+            <section class="section-buttons">
+                <a href="http://facebook.com/PABLODOS3K"><button class="facebook"><img src="/static/img/facebook1.png" alt="facebook"></button></a>
+                <a href="https://mail.google.com/mail"><button class="gmail"><img src="/static/img/gmail.png" alt="gmail"></button></a>
+            </section>
+            <section class="section-copyroght">
+                <p>2022 All rigths reserved. (o sea ninguno)</p>
+            </section>
+        </footer>
+
+    </section>  
+</body>
+</html>

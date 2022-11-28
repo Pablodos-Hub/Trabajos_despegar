@@ -44,24 +44,29 @@ nav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:5%;
+    gap:5%;;
 
 }
 .section-home a button{
     height: 20px;
     width: 50px;
+    
 }
 .section-nombre a button{
     height: 20px;
     width: 50px;
+    cursor: pointer;
+    
 }
 .section-categoria a button{
     height: 20px;
     width: 50px;
+    
 }
 .section-precio a button{
     height: 20px;
     width: 50px;
+    
 }
 .section-categoria input{
     width: 80px;
@@ -78,6 +83,7 @@ nav a button{
     width: 10%;
     height: 50%;
     box-shadow: black 1px 1px 2px;
+    cursor: pointer;
 }
 main{
     height: 56%;
@@ -131,4 +137,15 @@ article{
     background-color: aliceblue;
     border-radius: 4%;
     box-shadow: black 1px 1px 2px;
+    flex-direction: column;
+    justify-content: end;
+    cursor: pointer;
+    
+}
+article p{
+    font-size: x-small;
+}
+article img{
+    height: 165px;
+    width: 100%;
 }
