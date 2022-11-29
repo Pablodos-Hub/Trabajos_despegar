@@ -8,14 +8,47 @@
     <title>Mac-o-wins</title>
 </head>
 <body>
-    <header>
-        <h1>MAC-O-WINS</h1>
-    </header>
-    <main>
-        <p>nombre {{nombre}}! </p>
-    </main>
-    <footer>
+    <section class="contenedor">
+        <header>
+            <img src="/static/img/mac-owins.jpeg" name="logo">
+            <section class="section-header">
+                <h1>Orange box </h1>
+                <h4>from Mac-o-wins </h4>
+            </section>
+            <section class="section-p">
+                <p>"Si comprás de más es por que querés..."</p>
+            </section>
+        </header>
 
-    </footer>
+        <nav class="section-navegacion"> 
+            <section class="section-home">
+                <a href="{{url_for('index')}}" name="home">
+                    <button class="home" alt="home">home</button>
+                </a>
+            </section>
+        </nav>
+        <main>
+            <section class="section-productos">
+                {% for producto in productos%}
+                <article>
+                    <p>nombre: {{producto.nombre}}</p>
+                    <p>categoria: {{producto.categoria}}</p>
+                    <p>precio: ${{producto.precio}}</p>
+                </article>
+                {% endfor %}
+            </section>
+        </main>
+
+        <footer> 
+            <section class="section-buttons">
+                <a href="http://facebook.com/PABLODOS3K"><button class="facebook"><img src="/static/img/facebook1.png" alt="facebook"></button></a>
+                <a href="https://mail.google.com/mail"><button class="gmail"><img src="/static/img/gmail.png" alt="gmail"></button></a>
+            </section>
+            <section class="section-copyroght">
+                <p>2022 All rigths reserved. (o sea ninguno)</p>
+            </section>
+        </footer>
+
+    </section> 
 </body>
 </html>

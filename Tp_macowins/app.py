@@ -7,8 +7,6 @@ app = Flask(__name__)
 def index():
     return render_template("index.html",productos = articulos())
 
-
-
 def articulos():
     for producto in retiro.productos:
         if producto.codigo == 100:
@@ -48,31 +46,41 @@ def articulos():
             articulo12 = producto
     productos  = [articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,articulo7,articulo8,articulo9,articulo10,articulo11,articulo12]        
     return productos
-                 
-        
-    
-           
-
-@app.get("/pagina2")
+# ------------------------PAGINA2 NOMBRE -----------------------------#                    
+@app.get("/nombre")
 def pagina2():
-    return render_template("pagina2.html",nombre =nombre())  
+    return render_template("pagina2.html",productos = productos_nombre())        
 
+def productos_nombre():
+    lista = retiro.listar_productos_segun(PorNombre(request.args.get("nombre","")))
+    for producto in lista:
+        articulo1 = producto
+        productos_new = [articulo1]
+    return productos_new    
+# ------------------------PAGINA3 CATEGORIA ---------------------------#
 
-def nombre():
-    return request.args.get("nombre","")      
-       
-@app.get("/pagina3")
+@app.get("/categoria")
 def pagina3():
-    return render_template("pagina3.html",categoria =categoria())  
+    return render_template("pagina3.html",productos = productos_categoria())  
 
+def productos_categoria():
+    retiro2 = cargar ("retiro")
+    lista = retiro2.listar_productos_segun(PorCategoria(request.args.get("categoria","")))
+    productos_new1= []
+    for producto in lista:
+        productos_new1.append(producto)
+    return productos_new1    
+     
 
-def categoria():
-    return request.args.get("categoria","")
+# ------------------------PAGINA4 PRECIO MAX---------------------------#
 
 @app.get("/pagina4")
 def pagina4():
-    return render_template("pagina4.html",precio =precio())  
+    return render_template("pagina4.html",productos = productos())  
 
-
-def precio():
-    return request.args.get("precio","")    
+def productos():
+    retiro = cargar("retiro")
+    productos_new = []
+    for producto in retiro.productos:
+        productos_new.append(producto)
+    return productos_new

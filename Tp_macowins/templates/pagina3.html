@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <p>categoria {{categoria}}!</p>
+    <p>hola {{productos}}</p>
+    {% for producto in productos %}
+        <article>
+            <p>nombre: {{producto.nombre}}</p>
+            <p>categoria: {{producto.categoria}}</p>
+            <p>precio: ${{producto.precio}}</p>
+        </article>
+    {% endfor %}
 </body>
 </html>
