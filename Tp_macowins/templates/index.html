@@ -32,21 +32,21 @@
                 <form action="{{url_for('pagina2')}}" value="nombre">
                     <label for="nombre">Nombre:</label>
                     <input type="text" name="nombre">
-                    <button type="submit">enviar</button>
+                    <button type="submit">Enviar</button>
                 </form>   
             </section>
             <section class="section-categoria">
                 <form action="{{url_for('pagina3')}}" value="categoria">
                     <label for="categoria">Categoria:</label>
                     <input type="text" nombre="categoria">
-                    <button type="submit">enviar</button>
+                    <button type="submit">Enviar</button>
                 </form>    
             </section>
             <section class="section-precio">
                 <form action="{{url_for('pagina4')}}" value="precio">
-                    <label for="precio">Precio:</label>
-                    <input type="text" class="precio" nombre="precio">
-                    <button type="submit">precio-max</button>
+                    <label for="precio">Precio-Max:</label>
+                    <input type="number" nombre="precio">
+                    <button type="submit">Enviar</button>
                 </form>
             </section>
         </nav>
@@ -54,6 +54,7 @@
             <section class="section-productos">
                 {% for producto in productos%}
                 <article>
+                    <img src="/static/img/gato2.png" alt="gato">
                     <p>nombre: {{producto.nombre}}</p>
                     <p>categoria: {{producto.categoria}}</p>
                     <p>precio: ${{producto.precio}}</p>
