@@ -16,10 +16,13 @@ class PorNombre:
 
 class PorPrecio:
     def __init__(self,precio):
-        self.precio = precio
+        if type(precio) == int:
+            self.precio = precio
+        else:
+            self.precio = int(precio)   
 
     def aplica_a(self,producto):
-        return producto.precio < self.precio
+        return self.precio > producto.precio 
 
 class PorStock:
     def aplica_a(self,producto):

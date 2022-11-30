@@ -14,7 +14,7 @@ def index():
 def pagina2():
     retiro= cargar("retiro")
     productos_nombre = retiro.listar_productos_segun(PorNombre(request.args.get("nombre","remera river s")))
-    return render_template("pagina2.html",productos = productos_nombre)        
+    return render_template("pagina2.html",productos = productos_nombre, busqueda = request.args.get("nombre",""))        
 
     
 # ------------------------PAGINA3 CATEGORIA ---------------------------#

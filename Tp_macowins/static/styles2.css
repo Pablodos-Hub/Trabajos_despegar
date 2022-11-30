@@ -47,6 +47,14 @@ nav{
     gap:5%;;
 
 }
+.section-home{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 2%;
+}
 .section-home a button{
     height: 20px;
     width: 50px;
