@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='styles2.css')}}">
+    <link rel="shortcut icon" href="/static/img/mac-owins.jpeg">
     <title>Mac-o-wins</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
         <nav class="section-navegacion"> 
             <section class="section-home">
                 <a href="{{url_for('index')}}" name="home">
-                    <button class="home" alt="home">home</button>
+                    <button class="home" alt="home">Inicio</button>
                 </a>
                 <p>Productos precio-max: $"{{busqueda}}"</p>
             </section>
@@ -40,7 +41,7 @@
                     </article>
                     {% else %}
                     <article class="sinstock">
-                        <img src="/static/img/gato2.png alt="gato">
+                        <img src="/static/img/gato1.jpeg" alt="gato">
                         <p>nombre: {{producto.nombre}}</p>
                         <p>categoria: {{producto.categoria}}</p>
                         <p>precio: ${{producto.precio}}</p>
