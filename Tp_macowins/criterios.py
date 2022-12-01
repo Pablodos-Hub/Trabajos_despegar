@@ -22,7 +22,7 @@ class PorPrecio:
             self.precio = int(precio)   
 
     def aplica_a(self,producto):
-        return self.precio > producto.precio 
+        return self.precio >= producto.precio 
 
 class PorStock:
     def aplica_a(self,producto):

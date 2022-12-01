@@ -53,12 +53,21 @@
         <main>
             <section class="section-productos">
                 {% for producto in productos%}
-                <article>
-                    <img src="/static/img/gato2.png" alt="gato">
-                    <p>nombre: {{producto.nombre}}</p>
-                    <p>categoria: {{producto.categoria}}</p>
-                    <p>precio: ${{producto.precio}}</p>
-                </article>
+                {% if producto.stock > 0 %}
+                    <article class="constock">
+                        <img src="/static/img/gato1.jpeg" alt="gato">
+                        <p>nombre: {{producto.nombre}}</p>
+                        <p>categoria: {{producto.categoria}}</p>
+                        <p>precio: ${{producto.precio}}</p>
+                    </article>
+                    {% else %}
+                    <article class="sinstock">
+                        <img src="/static/img/gato2.png" alt="gato">
+                        <p>nombre: {{producto.nombre}}</p>
+                        <p>categoria: {{producto.categoria}}</p>
+                        <p>precio: ${{producto.precio}}</p>
+                    </article>
+                    {% endif %}
                 {% endfor %}
             </section>
         </main>

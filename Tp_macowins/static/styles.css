@@ -127,7 +127,7 @@ footer{
     gap: 2%;
     overflow: scroll;
 }
-article{
+.constock{
     display: flex;
     margin: 2%;
     height: 200px;
@@ -142,10 +142,33 @@ article{
     cursor: pointer;
     
 }
-article p{
+.constock p{
     font-size: x-small;
 }
-article img{
+.constock img{
+    height: 165px;
+    width: 100%;
+}
+.sinstock{
+    display: flex;
+    margin: 2%;
+    height: 200px;
+    width: 150px;
+    padding:2%;
+    border-width: 2px;
+    background-color: aliceblue;
+    border-radius: 4%;
+    box-shadow: black 1px 1px 2px;
+    flex-direction: column;
+    justify-content: end;
+    cursor: pointer;
+    text-decoration: line-through;
+    
+}
+.sinstock p{
+    font-size: x-small;
+}
+.sinstock img{
     height: 165px;
     width: 100%;
 }

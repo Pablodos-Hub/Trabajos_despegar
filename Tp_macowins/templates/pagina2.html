@@ -25,18 +25,27 @@
                 <a href="{{url_for('index')}}" name="home">
                     <button class="home" alt="home">home</button>
                 </a>
-                <p>Busqueda: "{{busqueda}}"</p>
+                <p>Producto busqueda: "{{busqueda}}"</p>
             </section>
         </nav>
         <main>
             <section class="section-productos">
                 {% for producto in productos%}
-                <article>
-                    <img src="/static/img/gato2.png" alt="gato">
-                    <p>nombre: {{producto.nombre}}</p>
-                    <p>categoria: {{producto.categoria}}</p>
-                    <p>precio: ${{producto.precio}}</p>
-                </article>
+                {% if producto.stock > 0 %}
+                    <article class="constock">
+                        <img src="/static/img/gato1.jpeg" alt="gato">
+                        <p>nombre: {{producto.nombre}}</p>
+                        <p>categoria: {{producto.categoria}}</p>
+                        <p>precio: ${{producto.precio}}</p>
+                    </article>
+                    {% else %}
+                    <article class="sinstock">
+                        <img src="/static/img/gato2.png" alt="gato">
+                        <p>nombre: {{producto.nombre}}</p>
+                        <p>categoria: {{producto.categoria}}</p>
+                        <p>precio: ${{producto.precio}}</p>
+                    </article>
+                    {% endif %}
                 {% endfor %}
             </section>
         </main>
